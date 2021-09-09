@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+service users {
+  rpc createUser(CreateRequest) returns (CreateResponse);
+  rpc getUser(GetRequest) returns (GetResponse);
+  rpc deleteUser(DeleteRequest) returns (DeleteResponse);
+  rpc updateUser(UpdateRequest) returns (UpdateResponse);
+}
+
+message CreateRequest {
+  string username = 1;
+  string lastname = 2;
+  string firstname = 3;
+  string email = 4;
+}
+message CreateResponse { string userid = 1; }
+
+message GetRequest { string username = 1; }
+message GetResponse {
+  string username = 1;
+  string lastname = 2;
+  string firstname = 3;
+  string email = 4;
+}
+
+message DeleteRequest { string username = 1; }
+message DeleteResponse { string status = 1; }
+
+message UpdateRequest {
+  string username = 1;
+  string lastname = 2;
+  string firstname = 3;
+  string email = 4;
+}
+message UpdateResponse { string status = 1; }
